@@ -149,7 +149,6 @@ Edit `configs/default.yaml` to customize:
 @article{wu2026castmamba,
   title={CastMamba: Efficient Defect Detection in Mechanical Castings via State-Space Modeling and Multi-Scale Attention},
   author={Wu, HaoQiong and Li, Yuheng},
-  journal={Scientific Reports},
   year={2026}
 }
 ```
