@@ -1,0 +1,53 @@
+# CastMamba Configuration
+
+# Model
+model:
+  base_dim: 64          # Base channel dimension C
+  d_state: 16           # SSM state dimension N
+  expand: 2             # Gating expansion factor
+  num_classes: 6        # MCDD: 6, BDD: 3
+
+# Training
+train:
+  epochs: 300
+  batch_size: 16
+  img_size: 640
+  optimizer: adamw
+  lr: 1.0e-3
+  weight_decay: 5.0e-2
+  scheduler: cosine
+  warmup_epochs: 5
+
+# Loss weights (detection)
+loss:
+  lambda_cls: 0.5
+  lambda_reg: 7.5
+  lambda_dfl: 1.5
+
+# Loss weights (segmentation)
+seg_loss:
+  lambda1: 1.0
+  lambda2: 0.5
+
+# Data augmentation
+augmentation:
+  mosaic: true
+  mixup: true
+  hsv_h: 0.015
+  hsv_s: 0.7
+  hsv_v: 0.4
+  flip_lr: 0.5
+  color_jitter: 0.4
+
+# Dataset
+dataset:
+  name: MCDD                # MCDD / BDD / MVTec-AD
+  train_split: 0.7
+  val_split: 0.2
+  test_split: 0.1
+
+# Hardware
+hardware:
+  device: cuda
+  num_workers: 8
+  pin_memory: true
